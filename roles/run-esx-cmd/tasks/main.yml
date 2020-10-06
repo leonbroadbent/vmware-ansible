@@ -12,7 +12,7 @@
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
-    esxi_hostname: "{{ esxi_hostname }}"
+    esxi_hostname: "{{ ansible_host }}"
     vsan: ensureObjectAccessibility
     evacuate: yes
     timeout: 3600
