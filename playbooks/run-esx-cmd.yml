@@ -1,0 +1,11 @@
+---
+ - hosts: hypervisors
+   serial: 1
+   roles:
+     - run-esx-cmd
+   vars_prompt:
+    - name: vcenter_username
+      prompt: "vcenter username?"
+      private: no
+    - name: vcenter_password
+      prompt: "vcenter password?"

@@ -1,0 +1,3 @@
+[hypervisors:children]
+c00-esx-01
+c00-esx-02.preprod.local
