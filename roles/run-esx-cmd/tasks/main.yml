@@ -1,20 +1,11 @@
+
+        
 - name: Run commands on ESXi hosts
   command: esxcli system maintenanceMode set --enable true
 
 - name: Run commands on ESXi hosts
-  command: Marc's command
+  command: "esxcli software vib remove --vibname=VMware:esx-nsxv:6.5.0-0.0.8047312"
 
 - name: Run commands on ESXi hosts
   command: esxcli system maintenanceMode set --enable false
 
-- name: Enter VSAN-Compliant Maintenance Mode
-  community.vmware.vmware_maintenancemode:
-    hostname: "{{ vcenter_hostname }}"
-    username: "{{ vcenter_username }}"
-    password: "{{ vcenter_password }}"
-    esxi_hostname: "{{ ansible_host }}"
-    vsan: ensureObjectAccessibility
-    evacuate: yes
-    timeout: 3600
-    state: present
-  delegate_to: localhost

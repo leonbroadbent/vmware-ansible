@@ -1,4 +1,4 @@
 ansible_user: root
 ansible_become: no
 ansible_python_interpreter: /bin/python3
-vcenter_hostname: vc1.eucsteve.local
+vcenter_hostname: test-c99-vcm01.preprod.local

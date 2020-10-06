@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   roles:
+     - vc-task
+   vars:
+    - vcenter_host: test-c99-vcm01.preprod.local
+   vars_prompt:
+    - name: vcenter_username
+      prompt: "vcenter username?"
+      private: no
+    - name: vcenter_password
+      prompt: "vcenter password?"

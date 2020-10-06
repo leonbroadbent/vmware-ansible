@@ -1,3 +1,9 @@
-[hypervisors:children]
-c00-esx-01
-c00-esx-02.preprod.local
+[hypervisors]
+test-c99-mgmt01.preprod.local
+test-c99-mgmt02.preprod.local
+test-c99-mgmt03.preprod.local
+test-c99-mgmt04.preprod.local
+
+[vcentre]
+test-c99-vcm01.preprod.local
+
