@@ -1,4 +1,0 @@
----
- - hosts: hypervisors
-   roles:
-     - run-esx-cmd
