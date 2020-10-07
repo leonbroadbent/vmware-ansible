@@ -1,11 +1,23 @@
-- name: set host attributes
-  community.vmware.vmware_tag_manager:
+# - name: set host attributes
+#   community.vmware.vmware_tag_manager:
+#     validate_certs: no
+#     hostname: '{{ vcenter_host }}'
+#     username: '{{ vcenter_username }}'
+#     password: '{{ vcenter_password }}'
+#     object_name: '{{ item }}'
+#     object_type: HostSystem
+#     tag_names:
+#       - InstantClone.Maintenance:1
+#   loop: "{{ groups['hypervisors'] }}"
+
+- name: Manage multiple settings for an ESXi Host
+  vmware_host_config_manager:
     validate_certs: no
     hostname: '{{ vcenter_host }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    object_name: '{{ item }}'
-    object_type: HostSystem
-    tag_names:
-      - InstantClone.Maintenance:1
+    esxi_hostname: '{{ item }}'
+    options:
+        # 'Annotations.InstantClone.Maintenance': '1'
+        'Annotations.WelcomeMessage': 'Hello World'
   loop: "{{ groups['hypervisors'] }}"
