@@ -1,0 +1,28 @@
+- name: Enter Maintenance Mode
+  community.vmware.vmware_maintenancemode:
+    hostname: "{{ vcenter_host }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: '{{ inventory_hostname }}'
+    # vsan: ensureObjectAccessibility
+    evacuate: yes
+    timeout: 3600
+    state: present
+  delegate_to: localhost
+
+- name: Run commands on ESXi hosts
+  command: "esxcli software vib list"
+  # command: "esxcli software vib remove --vibname=VMware:esx-nsxv:6.5.0-0.0.8047312"
+
+- name: Exit Maintenance Mode
+  community.vmware.vmware_maintenancemode:
+    hostname: "{{ vcenter_host }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: '{{ inventory_hostname }}'
+    # vsan: ensureObjectAccessibility
+    # evacuate: yes
+    timeout: 3600
+    state: absent
+  delegate_to: localhost
+
